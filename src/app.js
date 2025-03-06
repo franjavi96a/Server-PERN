@@ -1,15 +1,11 @@
 import express from 'express';
-import cors from 'cors';
-import morgan from 'morgan';
+import middleware from './middleware/middleware.js';
 import routerTareas from './routes/tareas.routes.js';
 
 const app = express();
 
-//Middleware
-app.use(cors());
-app.use(morgan('dev'));
-app.use(express.json());
-
+//Middlewares
+app.use(middleware);
 
 //Rutas
 app.use('/api', routerTareas)
